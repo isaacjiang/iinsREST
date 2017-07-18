@@ -1,0 +1,246 @@
+[
+  {
+    "short": "st",
+    "word": "street"
+  },
+  {
+    "short": "ave",
+    "word": "avenue"
+  },
+  {
+    "short": "rd",
+    "word": "road"
+  },
+  {
+    "short": "blvd",
+    "word": "boulevard"
+  },
+  {
+    "short": "SE",
+    "word": "southeast"
+  },
+  {
+    "short": "NW",
+    "word": "northwest"
+  },
+  {
+    "short": "NE",
+    "word": "northeast"
+  },
+  {
+    "short": "SW",
+    "word": "southwest"
+  },
+  {
+    "short": "ca",
+    "word": "canada"
+  },
+  {
+    "short": "us",
+    "word": "united state"
+  },
+  {
+    "short": "apt",
+    "word": "apartment"
+  },
+  {
+    "short": "dr",
+    "word": "drive"
+  },
+  {
+    "short": "pl",
+    "word": "place"
+  },
+  {
+    "short": "on",
+    "word": "ontario"
+  },
+  {
+    "short": "ab",
+    "word": "alberta"
+  },
+  {
+    "short": "bc",
+    "word": "british columbia"
+  },
+  {
+    "short": "mb",
+    "word": "manitoba"
+  },
+  {
+    "short": "nb",
+    "word": "new brunswick"
+  },
+  {
+    "short": "nl",
+    "word": "newfoundland and labrador"
+  },
+  {
+    "short": "ns",
+    "word": "nova scotia"
+  },
+  {
+    "short": "nt",
+    "word": "northwest territories"
+  },
+  {
+    "short": "nu",
+    "word": "nunavut"
+  },
+  {
+    "short": "pe",
+    "word": "prince edward island"
+  },
+  {
+    "short": "pei",
+    "word": "prince edward island"
+  },
+  {
+    "short": "qc",
+    "word": "quebec"
+  },
+  {
+    "short": "sk",
+    "word": "saskatchewan"
+  },
+  {
+    "short": "yt",
+    "word": "yukon"
+  },
+  {
+    "short": "bsmt",
+    "word": "basement"
+  },
+  {
+    "short": "br",
+    "word": "branch"
+  },
+  {
+    "short": "brg",
+    "word": "bridge"
+  },
+  {
+    "short": "bldg",
+    "word": "building"
+  },
+  {
+    "short": "ctr",
+    "word": "center"
+  },
+  {
+    "short": "cir",
+    "word": "circle"
+  },
+  {
+    "short": "crk",
+    "word": "creek"
+  },
+  {
+    "short": "cres",
+    "word": "crescent"
+  },
+  {
+    "short": "xing",
+    "word": "crossing"
+  },
+  {
+    "short": "dl",
+    "word": "dale"
+  },
+  {
+    "short": "dept",
+    "word": "department"
+  },
+  {
+    "short": "est",
+    "word": "estate"
+  },
+  {
+    "short": "expy",
+    "word": "expressway"
+  },
+  {
+    "short": "ext",
+    "word": "extension"
+  },
+  {
+    "short": "fl",
+    "word": "floor"
+  },
+  {
+    "short": "fwy",
+    "word": "freeway"
+  },
+  {
+    "short": "hwy",
+    "word": "highway"
+  },
+  {
+    "short": "hl",
+    "word": "hill"
+  },
+  {
+    "short": "hls",
+    "word": "hills"
+  },
+  {
+    "short": "ln",
+    "word": "lane"
+  },
+  {
+    "short": "lbby",
+    "word": "lobby"
+  },
+  {
+    "short": "ml",
+    "word": "mill"
+  },
+  {
+    "short": "mls",
+    "word": "mills"
+  },
+  {
+    "short": "mt",
+    "word": "mountain"
+  },
+  {
+    "short": "ofc",
+    "word": "office"
+  },
+  {
+    "short": "orch",
+    "word": "orchard"
+  },
+  {
+    "short": "pkwy",
+    "word": "parkway"
+  },
+  {
+    "short": "plz",
+    "word": "plaza"
+  },
+  {
+    "short": "prt",
+    "word": "port"
+  },
+  {
+    "short": "rdg",
+    "word": "ridge"
+  },
+  {
+    "short": "ste",
+    "word": "suite"
+  },
+  {
+    "short": "un",
+    "word": "union"
+  },
+  {
+    "short": "vly",
+    "word": "valley"
+  },
+  {
+    "short": "vis",
+    "word": "vista"
+  }
+]

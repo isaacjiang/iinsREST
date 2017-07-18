@@ -1,0 +1,165 @@
+[
+  { "group": "Session",
+    "content": [
+      {
+        "name": "Session Cookie Name",
+        "key": "sessionCookieName",
+        "value": "session",
+        "status": "",
+        "memo": "",
+        "group": "session",
+        "method": "text"
+      },
+      {
+        "name": "Session Permanent",
+        "key": "sessionPermanent",
+        "value": true,
+        "status": "",
+        "memo": "",
+        "group": "session",
+        "method": "checkbox"
+      },
+      {
+        "name": "Session Life Time",
+        "key": "permanentSessionLifeTime",
+        "value": 32000000,
+        "status": "",
+        "memo": "",
+        "group": "session",
+        "method": "text"
+      }
+    ]
+  },
+  {
+    "group": "Database",
+    "content": [
+      {
+        "name": "Database Domain",
+        "key": "databaseDomain",
+        "value": "localhost",
+        "status": "",
+        "memo": "",
+        "group": "database",
+        "method": "text"
+      },
+      {
+        "name": "Database Port",
+        "key": "databasePort",
+        "value": "27017",
+        "status": "",
+        "memo": "",
+        "group": "database",
+        "method": "text"
+      },
+      {
+        "name": "Map Service IP",
+        "key": "mapServiceIP",
+        "value": "72.38.67.21",
+        "status": "",
+        "memo": "",
+        "group": "database",
+        "method": "text"
+      },
+      {
+        "name": "Internet Connection",
+        "key": "internetConnection",
+        "value": true,
+        "status": "",
+        "memo": "",
+        "group": "database",
+        "method": "checkbox"
+      }
+    ]
+  },
+  {
+    "group": "Mail Service",
+    "content": [
+      {
+        "name": "Mail Service Address",
+        "key": "mailServiceAddress",
+        "value": "smtp.gmail.com",
+        "status": "",
+        "memo": "",
+        "group": "mailService",
+        "method": "text"
+      },
+      {
+        "name": "Mail Port",
+        "key": "mailPort",
+        "value": 465,
+        "status": "",
+        "memo": "",
+        "group": "mailService",
+        "method": "text"
+      },
+      {
+        "name": "Mail TLS",
+        "key": "mailUseTLS",
+        "value": false,
+        "status": "",
+        "memo": "",
+        "group": "mailService",
+        "method": "text"
+      },
+      {
+        "name": "Mail SSL",
+        "key": "mailUseSSL",
+        "value": true,
+        "status": "",
+        "memo": "",
+        "group": "mailService",
+        "method": "checkbox"
+      },
+      {
+        "name": "Mail Username",
+        "key": "mailUsername",
+        "value": "@providiusdesign.com",
+        "status": "",
+        "memo": "",
+        "group": "mailService",
+        "method": "text"
+      },
+      {
+        "name": "Mail Password",
+        "key": "mailPassword",
+        "value": "",
+        "status": "",
+        "memo": "",
+        "group": "mailService",
+        "method": "text"
+      },
+      {
+        "name": "Admin List",
+        "key": "admins",
+        "value": [],
+        "status": "",
+        "memo": "",
+        "group": "mailService",
+        "method": "text"
+      }
+    ]
+  },
+  {
+    "group": "Socket",
+    "content": [
+      {
+        "name": "Duration Base",
+        "key": "durationBase",
+        "value": 1,
+        "status": "",
+        "memo": "",
+        "group": "socket",
+        "method": "text"
+      },
+      {
+        "name": "Duration Addition",
+        "key": "durationAddition",
+        "value": 5,
+        "status": "",
+        "memo": "",
+        "group": "socket",
+        "method": "text"
+      }
+    ]
+  }
+]

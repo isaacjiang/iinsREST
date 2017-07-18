@@ -1,0 +1,99 @@
+[
+  {
+    "category" : "SystemTags",
+    "dispName" : "Active",
+    "full_text" : "Active",
+    "dispKey" : "Active",
+    "data" : {
+        "tagName" : "Active",
+        "tagType" : "System"
+    },
+    "dispAttr" : ""
+  },
+  {
+    "category" : "SystemTags",
+    "dispName" : "Pending",
+    "full_text" : "Pending",
+    "dispKey" : "Pending",
+    "data" : {
+        "tagName" : "Pending",
+        "tagType" : "System"
+    },
+    "dispAttr" : ""
+  },
+  {
+    "category" : "SystemTags",
+    "dispName" : "Concept",
+    "full_text" : "Concept",
+    "dispKey" : "Concept",
+    "data" : {
+        "tagName" : "Concept",
+        "tagType" : "System"
+    },
+    "dispAttr" : ""
+  },
+  {
+    "category" : "SystemTags",
+    "dispName" : "Warm Spare",
+    "full_text" : "Warm Spare",
+    "dispKey" : "Warm Spare",
+    "data" : {
+      "tagName" : "Warm Spare",
+      "tagType" : "System"
+    },
+    "dispAttr" : ""
+  },
+  {
+    "category" : "SystemTags",
+    "dispName" : "Cold Spare",
+    "full_text" : "Cold Spare",
+    "dispKey" : "Cold Spare",
+    "data" : {
+      "tagName" : "Cold Spare",
+      "tagType" : "System"
+    },
+    "dispAttr" : ""
+  },
+  {
+    "category" : "SystemTags",
+    "dispName" : "Spare",
+    "full_text" : "Spare",
+    "dispKey" : "Spare",
+    "data" : {
+      "tagName" : "Spare",
+      "tagType" : "System"
+    },
+    "dispAttr" : ""
+  },
+  {
+    "category" : "LogicalOperator",
+    "dispName" : "And",
+    "full_text" : "And",
+    "dispKey" : "And",
+    "data" : {
+        "tagName" : "And",
+        "tagType" : "Logic"
+    },
+    "dispAttr" : ""
+  },{
+    "category" : "LogicalOperator",
+    "dispName" : "Or",
+    "full_text" : "Or",
+    "dispKey" : "Or",
+    "data" : {
+        "tagName" : "Or",
+        "tagType" : "Logic"
+    },
+    "dispAttr" : ""
+  },{
+    "category" : "SystemMode",
+    "dispName" : "Best Path",
+    "full_text" : "Best Path",
+    "dispKey" : "Smart Trace",
+    "data" : {
+        "tagName" : "Best Path",
+        "tagType" : "System Mode"
+    },
+    "dispAttr" : ""
+  }
+]

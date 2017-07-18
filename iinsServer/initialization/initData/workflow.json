@@ -1,0 +1,203 @@
+[
+  {
+    "processName": "addDevice",
+    "taskID": 1,
+    "proviousTasks": [],
+    "taskName": "Select Device Type",
+    "taskKey": "selectdevicetype",
+    "description": "Select A Device Type.",
+    "status": "normal",
+    "startFlag": true,
+    "endFlag": false
+  },
+  {
+    "processName": "addDevice",
+    "taskID": 2,
+    "proviousTasks": [
+      1
+    ],
+    "taskName": "Device Information",
+    "taskKey": "deviceinformation",
+    "description": "Device Information.",
+    "status": "normal",
+    "startFlag": false,
+    "endFlag": false
+  },
+  {
+    "processName": "addDevice",
+    "taskID": 3,
+    "proviousTasks": [
+      2
+    ],
+    "taskName": "IP Address",
+    "taskKey": "ipaddress",
+    "description": "Verify IP Address.",
+    "status": "normal",
+    "startFlag": false,
+    "endFlag": false
+  },
+  {
+    "processName": "addDevice",
+    "taskID": 4,
+    "proviousTasks": [
+      3
+    ],
+    "taskName": "Location",
+    "taskKey": "location",
+    "description": "Address.",
+    "status": "normal",
+    "startFlag": false,
+    "endFlag": false
+  },
+  {
+    "processName": "addDevice",
+    "taskID": 5,
+    "proviousTasks": [
+      4
+    ],
+    "taskName": "Ports",
+    "taskKey": "ports",
+    "description": "Set Ports Connections.",
+    "status": "normal",
+    "startFlag": false,
+    "endFlag": false
+  },
+  {
+    "processName": "addDevice",
+    "taskID": 6,
+    "proviousTasks": [
+      5
+    ],
+    "taskName": "Attachments",
+    "taskKey": "attachments",
+    "description": "Attach files.",
+    "status": "normal",
+    "startFlag": false,
+    "endFlag": true
+  },
+
+  {
+    "processName": "addPtn",
+    "taskID": 1,
+    "proviousTasks": [],
+    "taskName": "PTN Information",
+    "taskKey": "ptninformation",
+    "description": "PTN Information.",
+    "status": "normal",
+    "startFlag": true,
+    "endFlag": false
+  },
+  {
+    "processName": "addPtn",
+    "taskID": 2,
+    "proviousTasks": [1],
+    "taskName": "Additional Information",
+    "taskKey": "additionalinformation",
+    "description": "Additional Information.",
+    "status": "normal",
+    "startFlag": true,
+    "endFlag": true
+  },
+
+  {
+    "processName": "settings",
+    "taskID": 1,
+    "proviousTasks": [],
+    "status": "normal",
+    "taskKey": "systemsettings",
+    "description": "System setting.",
+    "taskName": "System settings",
+    "startFlag": true,
+    "endFlag": true
+  },
+  {
+    "processName": "settings",
+    "taskID": 2,
+    "proviousTasks": [],
+    "status": "normal",
+    "taskKey": "userpermission",
+    "description": "User & permission.",
+    "taskName": "User & permission",
+    "startFlag": true,
+    "endFlag": true
+  },
+  {
+    "processName": "settings",
+    "taskID": 3,
+    "proviousTasks": [],
+    "status": "normal",
+    "taskKey": "usersettings",
+    "description": "User settings.",
+    "taskName": "User settings",
+    "startFlag": true,
+    "endFlag": true
+  },
+  {
+    "processName": "settings",
+    "taskID": 4,
+    "proviousTasks": [],
+    "status": "normal",
+    "taskKey": "databackup",
+    "description": "Data Backup.",
+    "taskName": "Data Backup",
+    "startFlag": true,
+    "endFlag": true
+  },
+  {
+    "processName": "settings",
+    "taskID": 5,
+    "proviousTasks": [],
+    "status": "normal",
+    "taskKey": "deviceconfig",
+    "description": "Device Type Configuration.",
+    "taskName": "Device Type Configuration",
+    "startFlag": true,
+    "endFlag": true
+  },
+  {
+    "processName": "settings",
+    "taskID": 6,
+    "proviousTasks": [],
+    "status": "normal",
+    "taskKey": "tagsmaintenance",
+    "description": "Tags Maintenance.",
+    "taskName": "Tags Maintenance",
+    "startFlag": true,
+    "endFlag": true
+  },
+  {
+    "processName": "settings",
+    "taskID": 7,
+    "proviousTasks": [],
+    "status": "normal",
+    "taskKey": "log",
+    "description": "View Change Logs.",
+    "taskName": "Change Logs",
+    "startFlag": true,
+    "endFlag": true
+  },
+
+
+  {
+    "processName": "addRoute",
+    "taskID": 1,
+    "proviousTasks": [],
+    "taskName": "Selected Device",
+    "taskKey": "selecteddevice",
+    "description": "Device Information.",
+    "status": "normal",
+    "startFlag": true,
+    "endFlag": false
+  },
+  {
+    "processName": "addRoute",
+    "taskID": 2,
+    "proviousTasks": [1],
+    "taskName": "Set Ports",
+    "taskKey": "setports",
+    "description": "Set Ports.",
+    "status": "normal",
+    "startFlag": true,
+    "endFlag": true
+  }
+]
