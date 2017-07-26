@@ -17,7 +17,7 @@
     "enable_utc" : true,
     "timezone" : "UTC",
     "accept_content" : ["json"],
-    "broker_url" : "mongodb://localhost:27017/sys_cq",
+    "broker_url" : "mongodb://localhost:27017/iins_cq",
     "task_ignore_result" : true,
     "task_serializer" : "json",
     "task_time_limit" : 360,

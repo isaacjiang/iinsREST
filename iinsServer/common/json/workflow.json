@@ -1,0 +1,62 @@
+[
+  {
+    "jobID": 1,
+    "jobName": "mainMenu",
+    "taskID": 1,
+    "previousTasks": [],
+    "taskName": "Customer Information",
+    "taskKey": "customerinfo",
+    "description": "Customer Information",
+    "status": "On",
+    "startFlag": true,
+    "endFlag": false
+  },
+  {
+    "jobID": 1,
+    "jobName": "mainMenu",
+    "taskID": 2,
+    "previousTasks": [],
+    "taskName": "Policy Information",
+    "taskKey": "policyinfo",
+    "description": "Policy Information",
+    "status": "On",
+    "startFlag": false,
+    "endFlag": false
+  },
+  {
+    "jobID": 1,
+    "jobName": "mainMenu",
+    "taskID": 3,
+    "previousTasks": [],
+    "taskName": "Payment",
+    "taskKey": "payment",
+    "description": "Payment",
+    "status": "On",
+    "startFlag": false,
+    "endFlag": false
+  },
+  {
+    "jobID": 1,
+    "jobName": "mainMenu",
+    "taskID": 4,
+    "previousTasks": [],
+    "taskName": "Policy Management",
+    "taskKey": "policymanagement",
+    "description": "Policy Management",
+    "status": "On",
+    "startFlag": false,
+    "endFlag": false
+  },
+  {
+    "jobID": 1,
+    "jobName": "mainMenu",
+    "taskID":5,
+    "previousTasks": [],
+    "taskName": "Customer Care",
+    "taskKey": "customercare",
+    "description": "Customer Care",
+    "status": "On",
+    "startFlag": false,
+    "endFlag": true
+  }
+]

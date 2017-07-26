@@ -5,13 +5,10 @@ class WorkflowService():
     def __init__(self):
         self.model = models
 
-    def queryWorkflow(self):
-        if request.method == 'POST':
-            data = json.loads(request.data)
-            processName =data['processName']
-            username = data['username']
-            workflow = self.model.WorkFlow(processName, username).get_all()
-            return workflow
+    def getWorkflowTemp(self):
+        jobName = request.args.get('jobName')
+        results = self.model.WorkFlowModel(jobName).getWorkflowTemp()
+        return json.dumps(results)
 
     def launchWorkflow(self):
         if request.method == 'POST':
@@ -66,11 +63,7 @@ class WorkflowService():
                     result = workflow.get_all()
                 return result
 
-    def get_workflow(self):
-        if request.method == 'POST':
-            data = json.loads(request.data)
-            results  = self.model.WorkFlow(data['processName'], data['userName']).get(data['taskID'])
-            return json.dumps(results[0])
+
 
     def clearworkflow(self):
         if request.method == 'POST':

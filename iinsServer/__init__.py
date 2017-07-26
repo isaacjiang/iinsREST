@@ -4,14 +4,14 @@ from flask import Flask,g
 from pymongo import MongoClient
 from flask_login import LoginManager
 
-from . import admin,files#,databackup,  initialization,  sessions,syslogging, syssetting, ipc, workflow
+from . import admin,files,common, workflow#,databackup,  initialization,  sessions,syslogging, syssetting, ipc
 
 from .sessions import MongoSessionInterface
 
 iinsapp = Flask(__name__)
 
 iinsapp.register_blueprint(blueprint=admin.blueprint)
-# iinsapp.register_blueprint(blueprint=workflow.blueprint)
+iinsapp.register_blueprint(blueprint=workflow.blueprint)
 iinsapp.register_blueprint(blueprint=files.blueprint)
 # iinsapp.register_blueprint(blueprint=syssetting.blueprint)
 # iinsapp.register_blueprint(blueprint=databackup.blueprint)
@@ -19,7 +19,7 @@ iinsapp.register_blueprint(blueprint=files.blueprint)
 # iinsapp.register_blueprint(blueprint=sessions.blueprint)
 
 # Update configuration
-
+common.DataInitialization().initialization()
 configuration = admin.controller.ConfigurationService().getConfiguration()
 configuration['appConfig']['APPLICATION_ROOT'] = os.getcwd()
 configuration['appConfig']['SECRET_KEY'] = os.urandom(24)

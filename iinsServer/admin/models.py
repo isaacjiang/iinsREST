@@ -27,20 +27,20 @@ class Configuration:
         response = urlopen(req).read().decode('utf8')
         return response
 
-    def initialization(self):
-        if self.db.configuration.find({}).count() == 0:
-            with open(os.path.join(os.getcwd(), 'configuration.json')) as data:
-                params = json.load(data)
-                data.close()
-                self.db.configuration.update_one({'paramsName': params['paramsName']}, {"$set": params}, upsert=True)
-        if self.db.users.find({'username': 'Admin'}).count() == 0:
-            with open(os.path.join(os.getcwd(), 'accounts.json')) as data:
-                params = json.load(data)
-                data.close()
-                self.db.users.update_one({'username': params['username']}, {"$set": params}, upsert=True)
+    # def initialization(self):
+    #     if self.db.configuration.find({}).count() == 0:
+    #         with open(os.path.join(os.getcwd(), 'configuration.json')) as data:
+    #             params = json.load(data)
+    #             data.close()
+    #             self.db.configuration.update_one({'paramsName': params['paramsName']}, {"$set": params}, upsert=True)
+    #     if self.db.users.find({'username': 'Admin'}).count() == 0:
+    #         with open(os.path.join(os.getcwd(), 'accounts.json')) as data:
+    #             params = json.load(data)
+    #             data.close()
+    #             self.db.users.update_one({'username': params['username']}, {"$set": params}, upsert=True)
 
     def getConfiguration(self):
-        self.initialization()
+        # self.initialization()
         server = self.db.configuration.find_one({}, {"_id": 0})
         return server
 
