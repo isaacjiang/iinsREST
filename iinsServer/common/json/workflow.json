@@ -1,7 +1,7 @@
 [
   {
     "jobID": 1,
-    "jobName": "mainMenu",
+    "jobName": "search",
     "taskID": 1,
     "previousTasks": [],
     "taskName": "Customer Information",
@@ -13,7 +13,7 @@
   },
   {
     "jobID": 1,
-    "jobName": "mainMenu",
+    "jobName": "search",
     "taskID": 2,
     "previousTasks": [],
     "taskName": "Policy Information",
@@ -25,7 +25,7 @@
   },
   {
     "jobID": 1,
-    "jobName": "mainMenu",
+    "jobName": "search",
     "taskID": 3,
     "previousTasks": [],
     "taskName": "Payment",
@@ -37,7 +37,7 @@
   },
   {
     "jobID": 1,
-    "jobName": "mainMenu",
+    "jobName": "search",
     "taskID": 4,
     "previousTasks": [],
     "taskName": "Policy Management",
@@ -49,12 +49,98 @@
   },
   {
     "jobID": 1,
-    "jobName": "mainMenu",
+    "jobName": "search",
     "taskID":5,
     "previousTasks": [],
     "taskName": "Customer Care",
     "taskKey": "customercare",
     "description": "Customer Care",
+    "status": "On",
+    "startFlag": false,
+    "endFlag": true
+  },
+
+
+  {
+    "jobID": 2,
+    "jobName": "customer",
+    "taskID": 1,
+    "previousTasks": [],
+    "taskName": "Profile",
+    "taskKey": "profile",
+    "description": "Customer profile",
+    "status": "On",
+    "startFlag": true,
+    "endFlag": false
+  },
+  {
+    "jobID": 2,
+    "jobName": "customer",
+    "taskID": 2,
+    "previousTasks": [],
+    "taskName": "Contact Information",
+    "taskKey": "contactinformation",
+    "description": "Contact Information",
+    "status": "On",
+    "startFlag": false,
+    "endFlag": false
+  },
+  {
+    "jobID": 3,
+    "jobName": "insurance",
+    "taskID": 1,
+    "previousTasks": [],
+    "taskName": "Fast Quote",
+    "taskKey": "quote",
+    "description": "Fast Quote",
+    "status": "On",
+    "startFlag": false,
+    "endFlag": false
+  },
+  {
+    "jobID": 3,
+    "jobName": "insurance",
+    "taskID": 2,
+    "previousTasks": [],
+    "taskName": "Fast Quote 2",
+    "taskKey": "quote2",
+    "description": "Fast Quote",
+    "status": "On",
+    "startFlag": false,
+    "endFlag": false
+  },
+  {
+    "jobID": 3,
+    "jobName": "insurance",
+    "taskID": 3,
+    "previousTasks": [],
+    "taskName": "Fast Quote 3",
+    "taskKey": "quote3",
+    "description": "Fast Quote ",
+    "status": "On",
+    "startFlag": false,
+    "endFlag": false
+  },
+  {
+    "jobID": 4,
+    "jobName": "application",
+    "taskID": 1,
+    "previousTasks": [],
+    "taskName": "Import Policy",
+    "taskKey": "import",
+    "description": "Import Policy",
+    "status": "On",
+    "startFlag": false,
+    "endFlag": false
+  },
+  {
+    "jobID": 5,
+    "jobName": "settings",
+    "taskID":1,
+    "previousTasks": [],
+    "taskName": "System Settings",
+    "taskKey": "systemsettings",
+    "description": "System Settings",
     "status": "On",
     "startFlag": false,
     "endFlag": true

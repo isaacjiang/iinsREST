@@ -22,12 +22,12 @@ class InitDatabaseModel:
 
     def initializeCommonDatabase(self):
 
-        if self.db.workflow.find({}).count() == 0:
+        if self.db.workflow_temp.find({}).count() == 0:
             with open(os.path.join(self.path, 'workflow.json')) as data:
                 params = json.load(data)
                 data.close()
                 for param in params:
-                    self.db.workflow.update_one({'jobID': param['jobID'],'taskID': param['taskID']}, {"$set": param}, upsert=True)
+                    self.db.workflow_temp.update_one({'jobID': param['jobID'],'taskID': param['taskID']}, {"$set": param}, upsert=True)
 
 
 

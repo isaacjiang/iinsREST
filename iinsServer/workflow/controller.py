@@ -5,9 +5,10 @@ class WorkflowService():
     def __init__(self):
         self.model = models
 
-    def getWorkflowTemp(self):
+    def getWorkflow(self):
         jobName = request.args.get('jobName')
-        results = self.model.WorkFlowModel(jobName).getWorkflowTemp()
+        username = request.args.get('username')
+        results = self.model.WorkFlowModel(jobName,username).getWorkflow()
         return json.dumps(results)
 
     def launchWorkflow(self):
