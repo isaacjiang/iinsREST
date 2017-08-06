@@ -13,166 +13,23 @@ from pprint import pprint
 class FileService():
     def __init__(self):
         self.model = models
-        self.collection = MongoClient('localhost', 27017).db_file
         self.db_policy = MongoClient('localhost', 27017).db_policy
-    def get_all(self):
-        if request.method == 'POST':
-            data = json.loads(request.data)
-            results = []
-            if data['key'] == 'all':
-                results = self.model.FileModel().get_all_files()
-            elif data['key'] == 'device':
-                results = self.model.FileModel().get_files_from_device(data['deviceID'])
-            return json.dumps(results)
 
-    def createFolder(self):
-        if request.form['action'] == 'createfolder':
-            deviceID = request.form['target']
-        if request.form['target'] != 'FilesDrive':
 
-            file = {"objectID": request.form['ObjectID'],
-                    "content_type": "folder",
-                    "filename": request.form['fileName'],
-                    "length": 0,
-                    "upload_date": datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                    }
-            # self.DeviceModel(deviceID).update_filenames(file)
-            return json.dumps(file)
+    def upload_documents(self):
+        output = []
+        if len(request.files) > 0:
+            for i in range(0, len(request.files)):
+                text =  self.get_pdf_text(request.files['file'])
+                dict=self.convert_text(text)
 
-    def filesService(self):
-        gfs = gridfs.GridFS(self.collection)
-        if request.form['action'] == "files":
-            devices = self.DeviceModel(request.form['source']).get()
-            data = []
-            if len(devices['filenames']) > 0:
-                for file in devices['filenames']:
-                    data.append({"id": file['objectID'], "value": file['filename'], "size": file['length'],
-                                 "type": file['content_type'], "date": self.utils.dateConverter(file['upload_date'])})
-            return json.dumps({"parent": request.form['source'], "data": data})
-
-        if request.form['action'] == "download":
-            objectID = request.form['source']
-            gfs = gridfs.GridFS(self.collection)
-            file = gfs.get(ObjectId(objectID)).read()
-            response = make_response(file)
-            response.headers['Content-Type'] = gfs.get(ObjectId(objectID)).content_type
-            response.headers['filename'] = gfs.get(ObjectId(objectID)).filename
-            response.headers["Content-Disposition"] = "attachment; filename= " + response.headers['filename'] + " "
-            return response
-
-        if request.form['action'] == "move":
-            fileObjectIDs = request.form['source'].split(",")
-            sourceParentID = request.form['sourceParentID']
-            target = request.form['target']
-            response = []
-            for fileObjectID in fileObjectIDs:
-                gridfsOut = gfs.get(ObjectId(fileObjectID))
-                file = {"objectID": str(fileObjectID),
-                        "content_type": gridfsOut.content_type,
-                        "filename": gridfsOut.filename,
-                        "length": gridfsOut.length,
-                        "upload_date": gridfsOut.upload_date.strftime('%Y-%m-%d %H:%M:%S')
-                        }
-                # self.DeviceModel(sourceParentID).update_filenames(file, delete=True)
-                # self.DeviceModel(target).update_filenames(file)
-                response.append({"id": str(fileObjectID), "value": gridfsOut.filename})
-            return json.dumps(response)
-
-        if request.form['action'] == "copy":
-            fileObjectIDs = request.form['source'].split(",")
-            sourceParentID = request.form['sourceParentID']
-            target = request.form['target']
-            response = []
-            for fileObjectID in fileObjectIDs:
-                gridfsOut = gfs.get(ObjectId(fileObjectID))
-                file = {"objectID": str(fileObjectID),
-                        "content_type": gridfsOut.content_type,
-                        "filename": gridfsOut.filename,
-                        "length": gridfsOut.length,
-                        "upload_date": gridfsOut.upload_date.strftime('%Y-%m-%d %H:%M:%S')
-                        }
-
-                newOjectID = gfs.put(gridfsOut.read(),
-                                     content_type=gridfsOut.content_type,
-                                     filename=gridfsOut.filename)
-
-                newgridfsOut = gfs.get(ObjectId(newOjectID))
-                newfile = {"objectID": str(newOjectID),
-                           "content_type": newgridfsOut.content_type,
-                           "filename": newgridfsOut.filename,
-                           "length": newgridfsOut.length,
-                           "upload_date": newgridfsOut.upload_date.strftime('%Y-%m-%d %H:%M:%S')
-                           }
-
-                # self.DeviceModel(target).update_filenames(newfile)
-                response.append({"id": str(newOjectID), "value": newgridfsOut.filename})
-            return json.dumps(response)
-
-        if request.form['action'] == "remove":
-            fileObjectIDs = request.form['source'].split(",")
-            sourceParentID = request.form['sourceParentID']
-            response = []
-            for fileObjectID in fileObjectIDs:
-                gridfsOut = gfs.get(ObjectId(fileObjectID))
-                file = {"objectID": str(fileObjectID),
-                        "content_type": gridfsOut.content_type,
-                        "filename": gridfsOut.filename,
-                        "length": gridfsOut.length,
-                        "upload_date": gridfsOut.upload_date.strftime('%Y-%m-%d %H:%M:%S')
-                        }
-                # self.DeviceModel(sourceParentID).update_filenames(file, delete=True)
-                response.append({"id": str(fileObjectID), "value": gridfsOut.filename})
-            return json.dumps(response)
-
-        if request.form['action'] == "rename":
-            fileObjectID = request.form['source']
-            sourceParentID = request.form['sourceParentID']
-            newfilename = request.form['target']
-            oldFileOut = gfs.get(ObjectId(fileObjectID))
-            oldFile = {"objectID": str(fileObjectID),
-                       "content_type": oldFileOut.content_type,
-                       "filename": oldFileOut.filename,
-                       "length": oldFileOut.length,
-                       "upload_date": oldFileOut.upload_date.strftime('%Y-%m-%d %H:%M:%S')
-                       }
-            newOjectID = gfs.put(oldFileOut.read(),
-                                 content_type=oldFileOut.content_type,
-                                 filename=newfilename)
-            gfs.delete(ObjectId(fileObjectID))
-            gridfsOut = gfs.get(ObjectId(newOjectID))
-            file = {"objectID": str(newOjectID),
-                    "content_type": gridfsOut.content_type,
-                    "filename": gridfsOut.filename,
-                    "length": gridfsOut.length,
-                    "upload_date": gridfsOut.upload_date.strftime('%Y-%m-%d %H:%M:%S')
-                    }
-            self.DeviceModel(sourceParentID).update_filenames(oldFile, delete=True)
-            self.DeviceModel(sourceParentID).update_filenames(file)
-            return json.dumps({"id": str(newOjectID), "value": gridfsOut.filename})
-
-    def upload_file(self):
-        if request.method == "POST":
-            output = []
-            gfs = gridfs.GridFS(self.collection)
-            if len(request.files) > 0:
-                for i in range(0, len(request.files)):
-                    text =  self.get_pdf_text(request.files['file'])
-                    dict=self.convert_text(text)
-
-                    objectID = gfs.put(request.files['file'].read(),
-                                       content_type=request.files['file'].content_type,
-                                       filename=request.files['file'].filename)
-                    gridfsOut = gfs.get(objectID)  # .length,gfs.get(objectID).upload_date
-                    output.append({"objectID": str(objectID),
-                                   "content_type": gridfsOut.content_type,
-                                   "filename": gridfsOut.filename,
-                                   "length": gridfsOut.length,
-                                   "upload_date": gridfsOut.upload_date.strftime('%Y-%m-%d %H:%M:%S')
-                                   })
-                    print(output)
-                    dict['PolicyDocument'] = output
-                    self.save(dict)
-            return json.dumps(output)
+                gridfsOut=self.model.FilesModel().upload_file(request.files['file'].read(),
+                                                 content_type=request.files['file'].content_type,
+                                                 filename=request.files['file'].filename)
+                output.append(gridfsOut)
+                dict['PolicyDocument'] = output
+                self.save(dict)
+        return json.dumps(output)
 
     def save(self,dict):
         # dict=json.loads(dict)
@@ -214,7 +71,6 @@ class FileService():
         # pprint(policy)
         return policy
 
-
     def get_pdf_text(self,fp):
         from pdfminer.pdfparser import PDFParser, PDFDocument
         from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
@@ -240,52 +96,14 @@ class FileService():
                     text_total += lt_obj.get_text()
         return text_total
 
-    def delete_file(self):
-        if request.method == "POST":
-            data = json.loads(request.data)
-            gfs = gridfs.GridFS(self.collection)
-            for file in data:
-                # files = file['files']
-                deviceID = file['deviceID']
-                response = []
-                self.model.FileModel().delete_file([file['files']])
-                # self.DeviceModel(deviceID).update_filenames(file['files'], delete=True)
-            return json.dumps([])
-
-    def download_file(self):
-        objectID = request.args['fileID']
-        gfs = gridfs.GridFS(self.collection)
-        file = gfs.get(ObjectId(objectID)).read()
-        response = make_response(file)
-        response.headers['Content-Type'] = gfs.get(ObjectId(objectID)).content_type
-        response.headers['filename'] = gfs.get(ObjectId(objectID)).filename
+    def download_documents(self):
+        print(request.args)
+        file_object = self.model.FilesModel().download_file(request.args['file_id'])
+        response = make_response(file_object.read())
+        response.headers['Content-Type'] = file_object.content_type
+        response.headers['filename'] = file_object.filename
         response.headers["Content-Disposition"] = "attachment; filename= " + response.headers['filename'] + " "
         return response
 
-    def paste_file(self):
-        if request.method == "POST":
-            data = json.loads(request.data)
-            filesIDList = data['fileID']
-            deviceID = data['deviceID']
-            for filesID in filesIDList:
-                file = self.model.FileModel(filesID).get()
-                if '_id' in file:
-                    del file['_id']
-                    gfs = gridfs.GridFS(self.collection)
-                    objectID = gfs.put(gfs.get(ObjectId(filesID)).read(),
-                                       content_type=file['contentType'],
-                                       filename=file['filename'])
-
-                    file_device = {"objectID": str(objectID),
-                                   "content_type": file['contentType'],
-                                   "filename": file['filename'],
-                                   "length": file['length'],
-                                   "upload_date": datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                                   }
-
-                    device = self.model.FileModel().DeviceModel(deviceID).get()
-                    device['filenames'].append(file_device)
-                    self.model.FileModel().DeviceModel(deviceID).fast_set(filenames=device['filenames'])
-            return json.dumps([])
 
 
