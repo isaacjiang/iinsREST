@@ -1,13 +1,8 @@
-import importlib
-from math import radians, cos, sin, asin, sqrt
-from datetime import datetime
-from . import models
-import gridfs
-from bson.objectid import ObjectId
+
 from flask import make_response, request, json
-# import xmltodict
+from . import models
 from pymongo import MongoClient
-from math import radians, cos, sin, asin, sqrt
+
 from pprint import pprint
 
 class FileService():
@@ -20,15 +15,17 @@ class FileService():
         output = []
         if len(request.files) > 0:
             for i in range(0, len(request.files)):
-                text =  self.get_pdf_text(request.files['file'])
-                dict=self.convert_text(text)
+                inputfile= request.files['file']
 
-                gridfsOut=self.model.FilesModel().upload_file(request.files['file'].read(),
-                                                 content_type=request.files['file'].content_type,
-                                                 filename=request.files['file'].filename)
+                gridfsOut=self.model.FilesModel().upload_file(inputfile.read(),
+                                                 content_type=inputfile.content_type,
+                                                 filename=inputfile.filename)
                 output.append(gridfsOut)
-                dict['PolicyDocument'] = output
-                self.save(dict)
+
+                # text =  self.get_pdf_text(inputfile)
+                # dictct=self.convert_text(text)
+                # dict['PolicyDocument'] = output
+                # self.save(dict)
         return json.dumps(output)
 
     def save(self,dict):
@@ -42,33 +39,33 @@ class FileService():
         for idx,tx in enumerate(text.split('\n')):
             # print(idx,tx)
             if 'JF Agent' in tx: policy['Agent']['Name'] = tx.split(' - ')[1]
-            if idx == 1: policy['Agent']['Address'] = tx
-            if idx == 2: policy['Agent']['PhoneNumber'] = tx
-            if 'Policy Holder:' in tx: policy['PolicyDetails']['PolicyHolder'] = tx.split(': ')[1]
-            if 'Date of Birth:' in tx: policy['PolicyDetails']['DateOfBirth'] = tx.split(': ')[1]
-            if 'Address:' in tx: policy['PolicyDetails']['Address1'] = tx.split(': ')[1]
-            if idx == 8: policy['PolicyDetails']['Address2'] = tx
-            if 'Phone Number:' in tx: policy['PolicyDetails']['PhoneNumber'] = tx.split(': ')[1]
-            if 'Email:' in tx: policy['PolicyDetails']['Email'] = tx.split(': ')[1]
-            if 'Policy Number:' in tx: policy['PolicyDetails']['PolicyNumber'] = tx.split(': ')[1]
-            if 'Application Date:' in tx: policy['PolicyDetails']['ApplicationDate'] = tx.split(': ')[1]
-            if 'Effective Date:' in tx: policy['PolicyDetails']['EffectiveDate'] = tx.split(': ')[1]
-            if 'Expiry Date:' in tx: policy['PolicyDetails']['ExpiryDate'] = tx.split(': ')[1]
-            if 'Number of Days:' in tx: policy['PolicyDetails']['NumberOfDays'] = tx.split(': ')[1]
-            if 'Insurance Plan:' in tx: policy['CoverageDetails']['InsurancePlan'] = tx.split(':')[1]
-            if idx==23: policy['CoverageDetails']['InsurancePlan'] += tx.replace('  ','')
-            if 'Plan Type:' in tx: policy['CoverageDetails']['PlanType'] = tx.split(': ')[1]
-            if 'Sum Insured:' in tx: policy['CoverageDetails']['SumInsured'] = tx.split(': $')[1]
-            if 'Deductible:' in tx: policy['CoverageDetails']['Deductible'] = tx.split(': $')[1]
-            if 'Beneficiary:' in tx: policy['CoverageDetails']['Beneficiary'] = tx.split(': ')[1]
-            if 'Total Premium:' in tx: policy['PaymentDetails']['TotalPremium'] = tx.split(': $')[1]
-            if 'Premium:' in tx:  policy['PaymentDetails']['Premium'] = tx.split(': $')[1]
-            if 'Payment Date:' in tx: policy['PaymentDetails']['PaymentDate'] = tx.split(': ')[1]
-            if 'Payment Method:' in tx: policy['PaymentDetails']['PaymentMethod'] = tx.split(': ')[1]
+            elif idx == 1: policy['Agent']['Address'] = tx
+            elif idx == 2: policy['Agent']['PhoneNumber'] = tx
+            elif 'Policy Holder:' in tx: policy['PolicyDetails']['PolicyHolder'] = tx.split(': ')[1]
+            elif 'Date of Birth:' in tx: policy['PolicyDetails']['DateOfBirth'] = tx.split(': ')[1]
+            elif 'Address:' in tx: policy['PolicyDetails']['Address1'] = tx.split(': ')[1]
+            elif idx == 8: policy['PolicyDetails']['Address2'] = tx
+            elif 'Phone Number:' in tx: policy['PolicyDetails']['PhoneNumber'] = tx.split(': ')[1]
+            elif 'Email:' in tx: policy['PolicyDetails']['Email'] = tx.split(': ')[1]
+            elif 'Policy Number:' in tx: policy['PolicyDetails']['PolicyNumber'] = tx.split(': ')[1]
+            elif 'Application Date:' in tx: policy['PolicyDetails']['ApplicationDate'] = tx.split(': ')[1]
+            elif 'Effective Date:' in tx: policy['PolicyDetails']['EffectiveDate'] = tx.split(': ')[1]
+            elif 'Expiry Date:' in tx: policy['PolicyDetails']['ExpiryDate'] = tx.split(': ')[1]
+            elif 'Number of Days:' in tx: policy['PolicyDetails']['NumberOfDays'] = tx.split(': ')[1]
+            elif 'Insurance Plan:' in tx: policy['CoverageDetails']['InsurancePlan'] = tx.split(':')[1]
+            elif idx==23: policy['CoverageDetails']['InsurancePlan'] += tx.replace('  ','')
+            elif 'Plan Type:' in tx: policy['CoverageDetails']['PlanType'] = tx.split(': ')[1]
+            elif 'Sum Insured:' in tx: policy['CoverageDetails']['SumInsured'] = tx.split(': $')[1]
+            elif 'Deductible:' in tx: policy['CoverageDetails']['Deductible'] = tx.split(': $')[1]
+            elif 'Beneficiary:' in tx: policy['CoverageDetails']['Beneficiary'] = tx.split(': ')[1]
+            elif 'Total Premium:' in tx: policy['PaymentDetails']['TotalPremium'] = tx.split(': $')[1]
+            elif 'Premium:' in tx:  policy['PaymentDetails']['Premium'] = tx.split(': $')[1]
+            elif 'Payment Date:' in tx: policy['PaymentDetails']['PaymentDate'] = tx.split(': ')[1]
+            elif 'Payment Method:' in tx: policy['PaymentDetails']['PaymentMethod'] = tx.split(': ')[1]
 
-            if 'Special Note' in tx: policy['SpecialNote'] = ''
-            if idx>=29 and idx<=51: policy['SpecialNote'] += tx
-        # pprint(policy)
+            elif 'Special Note' in tx: policy['SpecialNote'] = ''
+            elif idx>=29 and idx<=51: policy['SpecialNote'] += tx
+        pprint(policy)
         return policy
 
     def get_pdf_text(self,fp):
@@ -80,7 +77,7 @@ class FileService():
         doc = PDFDocument()
         parser.set_document(doc)
         doc.set_parser(parser)
-        doc.initialize('')
+        # doc.initialize('')
         rsrcmgr = PDFResourceManager()
         laparams = LAParams()
         device = PDFPageAggregator(rsrcmgr, laparams=laparams)
@@ -97,12 +94,13 @@ class FileService():
         return text_total
 
     def download_documents(self):
-        print(request.args)
+        # print(request.args)
         file_object = self.model.FilesModel().download_file(request.args['file_id'])
         response = make_response(file_object.read())
         response.headers['Content-Type'] = file_object.content_type
         response.headers['filename'] = file_object.filename
         response.headers["Content-Disposition"] = "attachment; filename= " + response.headers['filename'] + " "
+        # response.headers["Content-Disposition"] = "inline"
         return response
 
 
