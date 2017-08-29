@@ -9,6 +9,7 @@
     "description": "Issued List",
     "status": "On",
     "startFlag": true,
+    "visible":true,
     "endFlag": false
   },
   {
@@ -21,6 +22,7 @@
     "description": "Current List",
     "status": "On",
     "startFlag": false,
+    "visible":true,
     "endFlag": false
   },
   {
@@ -33,6 +35,7 @@
     "description": "Expired List",
     "status": "On",
     "startFlag": false,
+    "visible":false,
     "endFlag": false
   },
   {
@@ -45,6 +48,7 @@
     "description": "Commission/Marketing Fee",
     "status": "On",
     "startFlag": false,
+    "visible":false,
     "endFlag": false
   },
 
@@ -59,6 +63,7 @@
     "description": "Customer profile",
     "status": "On",
     "startFlag": true,
+    "visible":false,
     "endFlag": false
   },
   {
@@ -71,6 +76,7 @@
     "description": "Contact Information",
     "status": "On",
     "startFlag": false,
+    "visible":false,
     "endFlag": false
   },
   {
@@ -83,6 +89,7 @@
     "description": "Bill History",
     "status": "On",
     "startFlag": false,
+    "visible":false,
     "endFlag": false
   },
   {
@@ -95,6 +102,7 @@
     "description": "To Do List",
     "status": "On",
     "startFlag": false,
+    "visible":false,
     "endFlag": false
   },
   {
@@ -107,6 +115,7 @@
     "description": "Fast Quote",
     "status": "On",
     "startFlag": false,
+    "visible":false,
     "endFlag": false
   },
   {
@@ -119,6 +128,7 @@
     "description": "Expired Next Month",
     "status": "On",
     "startFlag": false,
+    "visible":false,
     "endFlag": false
   },
   {
@@ -131,6 +141,7 @@
     "description": "Quick Quote",
     "status": "On",
     "startFlag": false,
+    "visible":false,
     "endFlag": false
   },
   {
@@ -143,6 +154,7 @@
     "description": "Application",
     "status": "On",
     "startFlag": false,
+    "visible":false,
     "endFlag": false
   },
   {
@@ -155,6 +167,7 @@
     "description": "Processing",
     "status": "On",
     "startFlag": false,
+    "visible":false,
     "endFlag": false
   },
   {
@@ -167,6 +180,7 @@
     "description": "Upload Policy",
     "status": "On",
     "startFlag": false,
+    "visible":true,
     "endFlag": false
   },
   {
@@ -179,6 +193,7 @@
     "description": "System Settings",
     "status": "On",
     "startFlag": false,
+    "visible":false,
     "endFlag": true
   }
 ]
