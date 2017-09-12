@@ -17,5 +17,5 @@ class ApplicationModel():
         return result
 
     def save_application(self,application):
-        self.collection.update_one({"policy.policyNumber":application['policy']['policyNumber']},{"$set":application},upsert=True)
+        self.collection.update_one({},{"$set":application},upsert=True)
         return application

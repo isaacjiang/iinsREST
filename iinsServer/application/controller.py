@@ -14,5 +14,6 @@ class ApplicationService():
 
     def save_application(self):
         application = json.loads(request.data)
+        print(application)
         results = self.model.ApplicationModel().save_application(application)
         return json.dumps(results)

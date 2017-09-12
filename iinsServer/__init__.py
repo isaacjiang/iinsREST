@@ -4,7 +4,8 @@ from flask import Flask,g
 from pymongo import MongoClient
 from flask_login import LoginManager
 
-from . import admin,files,common, workflow,policy#,databackup,  initialization,  sessions,syslogging, syssetting, ipc
+from . import admin,files,common, workflow, application, policy
+#,databackup,  initialization,  sessions,syslogging, syssetting, ipc
 
 from .sessions import MongoSessionInterface
 
@@ -14,7 +15,7 @@ iinsapp.register_blueprint(blueprint=admin.blueprint)
 iinsapp.register_blueprint(blueprint=workflow.blueprint)
 iinsapp.register_blueprint(blueprint=files.blueprint)
 iinsapp.register_blueprint(blueprint=policy.blueprint)
-# iinsapp.register_blueprint(blueprint=databackup.blueprint)
+iinsapp.register_blueprint(blueprint=application.blueprint)
 # iinsapp.register_blueprint(blueprint=syslogging.blueprint)
 # iinsapp.register_blueprint(blueprint=sessions.blueprint)
 
