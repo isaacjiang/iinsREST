@@ -55,7 +55,7 @@
 
   {
     "jobID": 2,
-    "jobName": "customer",
+    "jobName": "customers",
     "taskID": 1,
     "previousTasks": [],
     "taskName": "Profile",
@@ -68,7 +68,7 @@
   },
   {
     "jobID": 2,
-    "jobName": "customer",
+    "jobName": "customers",
     "taskID": 2,
     "previousTasks": [],
     "taskName": "Contact Information",
@@ -81,7 +81,7 @@
   },
   {
     "jobID": 2,
-    "jobName": "customer",
+    "jobName": "customers",
     "taskID": 3,
     "previousTasks": [],
     "taskName": "Bill History",
@@ -94,7 +94,7 @@
   },
   {
     "jobID": 3,
-    "jobName": "insurance",
+    "jobName": "policies",
     "taskID": 1,
     "previousTasks": [],
     "taskName": "To Do List",
@@ -107,7 +107,7 @@
   },
   {
     "jobID": 3,
-    "jobName": "insurance",
+    "jobName": "policies",
     "taskID": 2,
     "previousTasks": [],
     "taskName": "Expired Today",
@@ -120,7 +120,7 @@
   },
   {
     "jobID": 3,
-    "jobName": "insurance",
+    "jobName": "policies",
     "taskID": 3,
     "previousTasks": [],
     "taskName": "Expired Next Month",
@@ -133,7 +133,7 @@
   },
   {
     "jobID": 4,
-    "jobName": "application",
+    "jobName": "applications",
     "taskID": 1,
     "previousTasks": [],
     "taskName": "Quick Quote",
@@ -146,7 +146,7 @@
   },
   {
     "jobID": 4,
-    "jobName": "application",
+    "jobName": "applications",
     "taskID": 2,
     "previousTasks": [],
     "taskName": "Application",
@@ -159,7 +159,7 @@
   },
   {
     "jobID": 4,
-    "jobName": "application",
+    "jobName": "applications",
     "taskID": 3,
     "previousTasks": [],
     "taskName": "Processing",
@@ -172,7 +172,7 @@
   },
   {
     "jobID": 4,
-    "jobName": "application",
+    "jobName": "applications",
     "taskID": 4,
     "previousTasks": [],
     "taskName": "Upload Policy",

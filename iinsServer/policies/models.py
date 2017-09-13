@@ -2,10 +2,14 @@ from bson import ObjectId
 from pymongo import ASCENDING,MongoClient
 from flask import g
 
-class PolicyModel():
+class PolicyCategoriesModel:
+    def __init__(self):
+        self.collection = getattr(g,'database',MongoClient('localhost', 27017)).iins_op.policy_categories
+
+
+class PolicyModel:
     def __init__(self):
         self.collection = getattr(g,'database',MongoClient('localhost', 27017)).iins_op.policy
-
 
     def get_policy_list(self):
         result = []
@@ -19,3 +23,4 @@ class PolicyModel():
     def save_policy(self,policyInfo):
         self.collection.update_one({"policy.policyNumber":policyInfo['policy']['policyNumber']},{"$set":policyInfo},upsert=True)
         return policyInfo
+

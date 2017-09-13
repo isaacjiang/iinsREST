@@ -1,0 +1,15 @@
+[
+  {"Abbr":"AB","Name":"Alberta","Order":3},
+  {"Abbr":"BC","Name":"British Columbia","Order":2},
+  {"Abbr":"MB","Name":"Manitoba","Order":4},
+  {"Abbr":"NB","Name":"New Brunswick","Order":5},
+  {"Abbr":"NL","Name":"Newfoundland and Labrador","Order":6},
+  {"Abbr":"NT","Name":"Northwest Territories","Order":7},
+  {"Abbr":"NS","Name":"Nova Scotia","Order":8},
+  {"Abbr":"NU","Name":"Nunavut","Order":9},
+  {"Abbr":"ON","Name":"Ontario","Order":10},
+  {"Abbr":"PE","Name":"Prince Edward Island","Order":11},
+  {"Abbr":"QC","Name":"Quebec","Order":3},
+  {"Abbr":"SK","Name":"Saskatchewan","Order":13},
+  {"Abbr":"YK","Name":"Yukon","Order":14}
+]

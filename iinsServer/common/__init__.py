@@ -1,8 +1,8 @@
 from flask import Blueprint
-from .controller import DataInitialization
+from .controller import CommonService,DataInitialization
 
 # print(__name__)
 blueprint = Blueprint(__name__, __name__, url_prefix='/rest/common')
 #
-# blueprint.add_url_rule('/getbackups', view_func=controller.DatabackupService().get_backups,
-#                        methods=['GET', 'POST'])
+blueprint.add_url_rule('/insurancecompany', view_func=CommonService().get_insurance_company)
+blueprint.add_url_rule('/provinces', view_func=CommonService().get_provinces)
