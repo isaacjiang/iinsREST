@@ -8,8 +8,14 @@ class CustomersService():
         self.model = models
 
     def get_list(self):
-        print(request.args)
+        # print(request.args)
         results = self.model.CustomersModel().get_list()
+        return json.dumps(results)
+
+    def search(self):
+        print(request.args)
+        searchText = request.args['searchText']
+        results = self.model.CustomersModel().search(searchText)
         return json.dumps(results)
 
     def save(self):

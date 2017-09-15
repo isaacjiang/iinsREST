@@ -5,5 +5,5 @@ from .controller import CustomersService
 blueprint = Blueprint(__name__, __name__, url_prefix='/rest/customers')
 
 blueprint.add_url_rule('/getlist', view_func=CustomersService().get_list)
-
+blueprint.add_url_rule('/search', view_func=CustomersService().search)
 blueprint.add_url_rule('/save', view_func=CustomersService().save, methods=['POST'])

@@ -15,9 +15,9 @@ class CommonService:
     def get_insurance_company(self):
         if request.args:
             params = request.args
-            result=self.model.get_insurance_company(params['IC_ID'])
+            result = self.model.get_insurance_company(params['IC_ID'])
         else:
-            result=self.model.get_insurance_company_list()
+            result = self.model.get_insurance_company_list()
         return json.dumps(result)
 
     def get_provinces(self):
