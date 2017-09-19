@@ -13,7 +13,7 @@ class CustomersService():
         return json.dumps(results)
 
     def search(self):
-        print(request.args)
+        # print(request.args)
         searchText = request.args['searchText']
         results = self.model.CustomersModel().search(searchText)
         return json.dumps(results)

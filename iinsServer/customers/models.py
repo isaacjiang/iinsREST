@@ -7,8 +7,9 @@ from flask import g
 class CustomersModel:
     def __init__(self):
         self.collection = getattr(g,'database',MongoClient('localhost', 27017)).iins_op.customers
-        if 'customer_name_text' not in self.collection.index_information().keys():
-            self.collection.create_index([('customer_name',TEXT)])
+        if 'customer_text' not in self.collection.index_information().keys():
+            self.collection.create_index([('firstName',TEXT),('lastName',TEXT),('dateOfBirth',TEXT),('address',TEXT)],
+                                         name="customer_text")
 
 
     def get_list(self):
