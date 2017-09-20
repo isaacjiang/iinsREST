@@ -14,7 +14,7 @@ class CustomersModel:
 
     def get_list(self):
         result = []
-        req = self.collection.find().sort('customer_name', ASCENDING)
+        req = self.collection.find().sort('lastName', ASCENDING)
         if req.count() > 0:
             for r in req:
                 r['_id'] = str(r['_id'])
@@ -30,7 +30,13 @@ class CustomersModel:
                 result.append(r)
         return result
 
-    def save(self,policyInfo):
-        self.collection.update_one({"policy.policyNumber":policyInfo['policy']['policyNumber']},{"$set":policyInfo},upsert=True)
-        return policyInfo
+    def save(self,customer):
+        if '_id' in customer.keys():
+            filter ={'_id':ObjectId(customer['_id'])}
+            del customer['_id']
+        else:
+            filter ={'_id':ObjectId()}
+        self.collection.update_one(filter,{"$set":customer},upsert=True)
+        customer['_id'] =str(filter['_id'])
+        return customer
 
